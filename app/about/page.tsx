@@ -25,14 +25,14 @@ function About() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
-      <div className="absolute right-0 inset-y-0 -z-10 w-1/3">
-        <Spline scene="https://prod.spline.design/pgPoo8Q-igbgQqiM/scene.splinecode" />
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="fixed inset-0 -z-10">
+        <Spline scene="https://prod.spline.design/pPxT3L1E0YD1CCDY/scene.splinecode" />
       </div>
       <div>
         <Nav />
       </div>
-      <div className="justify-center text-left text-wrap">
+      <div className="justify-center text-left text-wrap backdrop-blur-md backdrop-filter rounded-lg">
         <motion.div
           variants={containerVariants}
           initial="hidden"

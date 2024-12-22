@@ -46,6 +46,18 @@ const projects: Project[] = [
     githubUrl: "https://github.com/username/project-two",
     demoUrl: "https://demo.project-two.com",
   },
+  {
+    id: "3",
+    date: "Apr 4, 2023",
+    title: "Project Three",
+    description:
+      "A brief description of the second project that shows on the card.",
+    views: 18000,
+    longDescription:
+      "A more detailed description of the second project. This appears when the user clicks on the project card.",
+    githubUrl: "https://github.com/username/project-two",
+    demoUrl: "https://demo.project-two.com",
+  },
   // Add more projects as needed
 ];
 
