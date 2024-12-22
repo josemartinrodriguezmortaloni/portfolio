@@ -1,8 +1,8 @@
 "use client";
-
 import Nav from "../components/navabar";
 import { motion } from "framer-motion";
-export default function About() {
+import Spline from "@splinetool/react-spline";
+function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,6 +26,9 @@ export default function About() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
+      <div className="absolute right-0 inset-y-0 -z-10 w-1/3">
+        <Spline scene="https://prod.spline.design/pgPoo8Q-igbgQqiM/scene.splinecode" />
+      </div>
       <div>
         <Nav />
       </div>
@@ -82,3 +85,5 @@ export default function About() {
     </div>
   );
 }
+
+export default About;

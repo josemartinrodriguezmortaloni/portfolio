@@ -13,7 +13,7 @@ export default function Nav() {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-10 backdrop-filter backdrop-blur-lg bg-opacity-100 bg-gray-100 rounded-full border border-gray-200 px-6 py-1">
+    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-10 backdrop-filter backdrop-blur-lg rounded-full px-6 py-1">
       <div className="flex items-center justify-center space-x-6">
         {navItems.map((item) => (
           <Link
