@@ -6,19 +6,20 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+} from "@/app/components/ui/dialog";
+import { Button } from "@/app/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import Spline from "@splinetool/react-spline";
+
 interface Project {
   id: string;
-  date: string;
+  date?: string;
   title: string;
-  description: string;
-  views: number;
-  longDescription: string;
-  githubUrl: string;
-  demoUrl: string;
+  description?: string;
+  views?: number;
+  longDescription?: string;
+  githubUrl?: string;
+  demoUrl?: string;
 }
 
 const projects: Project[] = [
@@ -48,15 +49,12 @@ const projects: Project[] = [
   },
   {
     id: "3",
-    date: "Apr 4, 2023",
     title: "Project Three",
     description:
-      "A brief description of the second project that shows on the card.",
-    views: 18000,
+      "A brief description of the third project that shows on the card.",
     longDescription:
-      "A more detailed description of the second project. This appears when the user clicks on the project card.",
-    githubUrl: "https://github.com/username/project-two",
-    demoUrl: "https://demo.project-two.com",
+      "A more detailed description of the third project. This appears when the user clicks on the project card.",
+    githubUrl: "https://github.com/username/project-three",
   },
   // Add more projects as needed
 ];
@@ -79,20 +77,24 @@ export default function Projects() {
             {projects.map((project) => (
               <Dialog key={project.id}>
                 <DialogTrigger asChild>
-                  <div className="group cursor-pointer rounded-lg p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter">
+                  <div className="group cursor-pointer rounded-lg p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter ">
                     <div className="flex justify-between items-start mb-4">
                       <h2 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
                         {project.title}
                       </h2>
-                      <span className="text-sm text-muted-foreground flex items-center gap-1">
-                        <ExternalLink className="w-4 h-4" />
-                        {project.views.toLocaleString()}
-                      </span>
+                      {project.views !== undefined && (
+                        <span className="text-sm text-muted-foreground flex items-center gap-1">
+                          <ExternalLink className="w-4 h-4" />
+                          {project.views.toLocaleString()}
+                        </span>
+                      )}
                     </div>
 
-                    <p className="text-muted-foreground mb-4">
-                      {project.description}
-                    </p>
+                    {project.description && (
+                      <p className="text-muted-foreground mb-4">
+                        {project.description}
+                      </p>
+                    )}
 
                     <div className="flex items-center text-sm text-primary">
                       Read more →
@@ -108,33 +110,39 @@ export default function Projects() {
                   </DialogHeader>
 
                   <div className="mt-4 space-y-4">
-                    <p className="text-muted-foreground">
-                      {project.longDescription}
-                    </p>
+                    {project.longDescription && (
+                      <p className="text-muted-foreground">
+                        {project.longDescription}
+                      </p>
+                    )}
 
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <Button asChild>
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <Github className="w-4 h-4" />
-                          View on GitHub
-                        </a>
-                      </Button>
-                      <Button asChild variant="outline">
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          View Demo
-                        </a>
-                      </Button>
+                      {project.githubUrl && (
+                        <Button asChild>
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2"
+                          >
+                            <Github className="w-4 h-4" />
+                            View on GitHub
+                          </a>
+                        </Button>
+                      )}
+                      {project.demoUrl && (
+                        <Button asChild variant="outline">
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            View Demo
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </DialogContent>

@@ -27,12 +27,12 @@ function About() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <div className="fixed inset-0 -z-10">
-        <Spline scene="https://prod.spline.design/pPxT3L1E0YD1CCDY/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/uXvHfVlOgdQ6R0fQ/scene.splinecode" />
       </div>
       <div>
         <Nav />
       </div>
-      <div className="justify-center text-left text-wrap backdrop-blur-md backdrop-filter rounded-lg">
+      <div className="justify-center text-left text-wrap cursor-pointer rounded-lg p-6 transition-colors backdrop-blur-md backdrop-filter">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -51,10 +51,7 @@ function About() {
             />
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="space-y-6 text-lg text-muted-foreground"
-          >
+          <motion.div variants={itemVariants} className="space-y-6 text-lg">
             <p className="font-medium">
               Estudiante de Ingeniería en Sistemas, apasionado por la
               Inteligencia Artificial.
