@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import React from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { CodeBlock, CodeBlockCode } from "./code-block";
@@ -71,11 +74,20 @@ const INITIAL_COMPONENTS: Partial<Components> = {
 
     const language = extractLanguage(className);
 
-    return (
-      <CodeBlock className={cn("my-4", className)}>
-        <CodeBlockCode code={children as string} language={language} />
-      </CodeBlock>
-    );
+    try {
+      return (
+        <CodeBlock className={cn("my-4", className)}>
+          <CodeBlockCode code={children as string} language={language} />
+        </CodeBlock>
+      );
+    } catch (error) {
+      console.error("Error rendering code block:", error);
+      return (
+        <pre className="my-4 bg-muted p-4 rounded overflow-x-auto">
+          <code>{children}</code>
+        </pre>
+      );
+    }
   },
   pre: ({ children }) => <div className="my-4">{children}</div>,
   hr: () => <hr className="my-8 border-border" />,
@@ -89,18 +101,27 @@ export function Markdown({
   components = INITIAL_COMPONENTS,
   ...props
 }: MarkdownProps) {
-  return (
-    <div className={cn("space-y-2 text-card-foreground", className)}>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          ...INITIAL_COMPONENTS,
-          ...components,
-        }}
-        {...props}
-      >
-        {children}
-      </ReactMarkdown>
-    </div>
-  );
+  try {
+    return (
+      <div className={cn("space-y-2 text-card-foreground", className)}>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            ...INITIAL_COMPONENTS,
+            ...components,
+          }}
+          {...props}
+        >
+          {children}
+        </ReactMarkdown>
+      </div>
+    );
+  } catch (error) {
+    console.error("Error rendering markdown:", error);
+    return (
+      <div className={cn("space-y-2 text-card-foreground", className)}>
+        <pre className="p-4 bg-muted rounded overflow-x-auto">{children}</pre>
+      </div>
+    );
+  }
 }

@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import React, { useEffect, useState } from "react"
-import { codeToHtml } from "shiki"
+import { cn } from "@/lib/utils";
+import React, { useEffect, useState } from "react";
+import { codeToHtml } from "shiki";
 
 export type CodeBlockProps = {
-  children?: React.ReactNode
-  className?: string
-} & React.HTMLProps<HTMLDivElement>
+  children?: React.ReactNode;
+  className?: string;
+} & React.HTMLProps<HTMLDivElement>;
 
-function CodeBlock({ children, className, ...props }: CodeBlockProps) {
+export function CodeBlock({ children, className, ...props }: CodeBlockProps) {
   return (
     <div
       className={cn(
@@ -21,37 +21,42 @@ function CodeBlock({ children, className, ...props }: CodeBlockProps) {
     >
       {children}
     </div>
-  )
+  );
 }
 
 export type CodeBlockCodeProps = {
-  code: string
-  language?: string
-  theme?: string
-  className?: string
-} & React.HTMLProps<HTMLDivElement>
+  code: string;
+  language?: string;
+  theme?: string;
+  className?: string;
+} & React.HTMLProps<HTMLDivElement>;
 
-function CodeBlockCode({
+export function CodeBlockCode({
   code,
   language = "tsx",
   theme = "github-light",
   className,
   ...props
 }: CodeBlockCodeProps) {
-  const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null)
+  const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null);
 
   useEffect(() => {
     async function highlight() {
-      const html = await codeToHtml(code, { lang: language, theme })
-      setHighlightedHtml(html)
+      try {
+        const html = await codeToHtml(code, { lang: language, theme });
+        setHighlightedHtml(html);
+      } catch (error) {
+        console.error("Error highlighting code:", error);
+        setHighlightedHtml(`<pre><code>${code}</code></pre>`);
+      }
     }
-    highlight()
-  }, [code, language, theme])
+    highlight();
+  }, [code, language, theme]);
 
   const classNames = cn(
     "w-full overflow-x-auto text-[13px] [&>pre]:px-4 [&>pre]:py-4",
     className
-  )
+  );
 
   // SSR fallback: render plain code if not hydrated yet
   return highlightedHtml ? (
@@ -66,12 +71,12 @@ function CodeBlockCode({
         <code>{code}</code>
       </pre>
     </div>
-  )
+  );
 }
 
-export type CodeBlockGroupProps = React.HTMLAttributes<HTMLDivElement>
+export type CodeBlockGroupProps = React.HTMLAttributes<HTMLDivElement>;
 
-function CodeBlockGroup({
+export function CodeBlockGroup({
   children,
   className,
   ...props
@@ -83,7 +88,5 @@ function CodeBlockGroup({
     >
       {children}
     </div>
-  )
+  );
 }
-
-export { CodeBlockGroup, CodeBlockCode, CodeBlock }
