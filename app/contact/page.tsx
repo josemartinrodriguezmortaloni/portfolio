@@ -1,21 +1,50 @@
+"use client";
 import Link from "next/link";
 import { Twitter, Linkedin, Github } from "lucide-react";
-import Spline from "@splinetool/react-spline";
 import Nav from "../components/navabar";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="fixed inset-0 -z-10">
-        <Spline scene="https://prod.spline.design/uXvHfVlOgdQ6R0fQ/scene.splinecode" />
-      </div>
       <div>
         <Nav />
       </div>
       <div className="justify-center">
-        <div className="z-10 p-8 rounded-lg shadow-lg max-w-md w-full cursor-pointer hover:border-primary transition-colors backdrop-blur-md backdrop-filter">
-          <h1 className="text-3xl font-bold mb-6 text-center">Contacto</h1>
-          <div className="space-y-4">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="z-10 p-8 rounded-lg shadow-lg max-w-md w-full cursor-pointer hover:border-primary transition-colors backdrop-blur-md backdrop-filter"
+        >
+          <motion.h1
+            className="text-3xl font-bold mb-6 text-center"
+            variants={itemVariants}
+          >
+            Contacto
+          </motion.h1>
+          <motion.div className="space-y-4" variants={itemVariants}>
             <Link
               href="https://twitter.com/tu_usuario"
               className="flex items-center space-x-3 p-3 rounded-lg hover:text-zinc-600 transition duration-300"
@@ -39,8 +68,8 @@ export default function ContactPage() {
               <Github className="w-6 h-6 text-black" />
               <span>Revisa mis proyectos en GitHub</span>
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

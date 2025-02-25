@@ -8,8 +8,9 @@ import {
   DialogTrigger,
 } from "@/app/components/ui/dialog";
 import { Button } from "@/app/components/ui/button";
+import { Markdown } from "@/app/components/markdown";
 import { Github, ExternalLink } from "lucide-react";
-import Spline from "@splinetool/react-spline";
+import { motion } from "framer-motion";
 
 interface Project {
   id: string;
@@ -25,46 +26,36 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
-    date: "Jul 1, 2023",
-    title: "Project One",
+    title: "Bot UTN Frm",
     description:
-      "A brief description of the first project that shows on the card.",
-    views: 22000,
+      "AI-powered bot for faculty students that provides course schedules and responds to queries in natural language.",
     longDescription:
-      "A more detailed description of the project that appears in the modal when clicked. This can be multiple paragraphs long and include technical details.",
-    githubUrl: "https://github.com/username/project-one",
-    demoUrl: "https://demo.project-one.com",
+      "Bot developed by and for students of the faculty, providing course schedules by committee, by subject, tables of a subject, responding in natural language thanks to integration with AI.\n\n## ✨ Features\n\n* **Course Schedules** by committee\n* **Subject Information** with detailed tables\n* **Natural Language** responses via AI integration\n* **Student-Focused** design and functionality\n\n## 🛠️ Technology\n\n* **AI Integration** for natural language processing\n* **Educational API** connections\n* **User-Friendly** interface for students",
+    githubUrl: "https://github.com/m4s1t4/botUTNFRM",
   },
   {
     id: "2",
-    date: "Apr 1, 2023",
-    title: "Project Two",
+    title: "Slack Agent",
     description:
-      "A brief description of the second project that shows on the card.",
-    views: 18000,
+      "An intelligent Slack chatbot with local AI capabilities using Ollama. Integrates Trello/GitHub, RAG, and custom tools.",
     longDescription:
-      "A more detailed description of the second project. This appears when the user clicks on the project card.",
-    githubUrl: "https://github.com/username/project-two",
-    demoUrl: "https://demo.project-two.com",
+      "An intelligent Slack chatbot with local AI capabilities using Ollama. Integrates Trello/GitHub, RAG, and custom tools.\n\n## ✨ Main Features\n\n* **Local AI** with Ollama (llama3.2 model)\n* **Trello** Integration (board management)\n* **GitHub** repository exploration\n* **RAG** System (Retrieval Augmented Generation)\n* Persistent conversation history\n* Tools system with function calling\n\n## 🛠️ Technology Stack\n\n* **AI Engine**: Ollama (Local LLM)\n* **Framework**: Slack Bolt\n* **Tools**:\n  * Trello API (py-trello)\n  * PyGithub for GitHub interactions\n  * LangChain for RAG pipelines\n* **Storage**: ChromaDB (vectors)",
+    githubUrl: "https://github.com/m4s1t4/Slack-Agent",
   },
   {
     id: "3",
-    title: "Project Three",
-    description:
-      "A brief description of the third project that shows on the card.",
+    title: "Open Code Assistant",
+    description: "Your pair programming friend",
     longDescription:
-      "A more detailed description of the third project. This appears when the user clicks on the project card.",
-    githubUrl: "https://github.com/username/project-three",
+      "This project is an open source wizard that uses various tools and APIs to assist in software development. The wizard can perform tasks such as creating and editing files, reading file contents, listing files in a directory, performing web searches, taking screenshots, and more.\n\n## ✨ Key Features\n\n* **File Management** - Create, edit, and read files\n* **Code Assistance** - Intelligent suggestions and improvements\n* **API Integration** - Connect with various development tools\n* **Search Capabilities** - Find resources and documentation\n\n## 🛠️ Technologies Used\n\n* **Modern Web Stack**\n* **AI-powered Analysis**\n* **Development API Integrations**",
+    githubUrl: "https://github.com/m4s1t4/Open-Code-Assistant",
   },
   // Add more projects as needed
 ];
 
 export default function Projects() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="fixed inset-0 -z-10">
-        <Spline scene="https://prod.spline.design/uXvHfVlOgdQ6R0fQ/scene.splinecode" />
-      </div>
+    <div className="grid bg-[image:'/images/macbook wallpaer.jpeg'] grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <div>
         <Nav />
       </div>
@@ -111,9 +102,7 @@ export default function Projects() {
 
                   <div className="mt-4 space-y-4">
                     {project.longDescription && (
-                      <p className="text-muted-foreground">
-                        {project.longDescription}
-                      </p>
+                      <Markdown>{project.longDescription}</Markdown>
                     )}
 
                     <div className="flex flex-col sm:flex-row gap-3">

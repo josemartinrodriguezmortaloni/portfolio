@@ -1,7 +1,7 @@
 "use client";
 import Nav from "../components/navabar";
 import { motion } from "framer-motion";
-import Spline from "@splinetool/react-spline";
+
 function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,9 +26,14 @@ function About() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="fixed inset-0 -z-10">
-        <Spline scene="https://prod.spline.design/uXvHfVlOgdQ6R0fQ/scene.splinecode" />
-      </div>
+      <div
+        className="fixed h-screen -z-10"
+        style={{
+          backgroundImage: "url('/images/macbook wallpaer.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
       <div>
         <Nav />
       </div>
