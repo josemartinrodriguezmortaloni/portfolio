@@ -53,10 +53,10 @@ const INITIAL_COMPONENTS: Partial<Components> = {
       {children}
     </blockquote>
   ),
-  code: ({ className, children, ...props }: any) => {
+  code: ({ className, children, node, ...props }) => {
     const isInline =
-      !props.node?.position?.start.line ||
-      props.node?.position?.start.line === props.node?.position?.end.line;
+      !node?.position?.start?.line ||
+      node?.position?.start?.line === node?.position?.end?.line;
 
     if (isInline) {
       return (
