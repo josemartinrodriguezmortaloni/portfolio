@@ -1,8 +1,9 @@
 "use client";
+
 import Nav from "../components/navabar";
 import { motion } from "framer-motion";
 
-function About() {
+export default function Page() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -79,5 +80,3 @@ function About() {
     </div>
   );
 }
-
-export default About;
