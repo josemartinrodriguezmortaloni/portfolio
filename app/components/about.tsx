@@ -1,6 +1,5 @@
 "use client";
 
-import Nav from "./navabar";
 import { motion } from "framer-motion";
 
 export default function About() {

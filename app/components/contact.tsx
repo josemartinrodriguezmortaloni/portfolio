@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { Twitter, Linkedin, Github } from "lucide-react";
-import Nav from "./navabar";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
