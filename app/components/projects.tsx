@@ -136,7 +136,7 @@ export default function Projects() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="sm:max-w-[625px]">
+              <DialogContent className="sm:max-w-[625px] backdrop-blur-md backdrop-filter shadow-lg rounded-lg">
                 <DialogHeader>
                   <DialogTitle className="text-2xl">
                     {projects[0].title}
@@ -211,7 +211,7 @@ export default function Projects() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="sm:max-w-[625px]">
+              <DialogContent className="sm:max-w-[625px] backdrop-blur-md backdrop-filter shadow-lg rounded-lg">
                 <DialogHeader>
                   <DialogTitle className="text-2xl">
                     {projects[1].title}
@@ -286,7 +286,7 @@ export default function Projects() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="sm:max-w-[625px]">
+              <DialogContent className="sm:max-w-[625px] backdrop-blur-md backdrop-filter shadow-lg rounded-lg">
                 <DialogHeader>
                   <DialogTitle className="text-2xl">
                     {projects[2].title}
@@ -367,7 +367,7 @@ export default function Projects() {
                       </motion.div>
                     </DialogTrigger>
 
-                    <DialogContent className="sm:max-w-[625px]">
+                    <DialogContent className="sm:max-w-[625px] bg-white/50 backdrop-blur-md backdrop-filter border border-white/20 shadow-lg rounded-lg">
                       <DialogHeader>
                         <DialogTitle className="text-2xl">
                           {project.title}
