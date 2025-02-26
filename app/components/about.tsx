@@ -25,7 +25,7 @@ export default function About() {
   };
 
   return (
-    <div>
+    <div id="about">
       <div className="justify-center text-left text-wrap cursor-pointer rounded-lg p-20 transition-colors backdrop-blur-md backdrop-filter">
         <motion.div
           variants={containerVariants}
@@ -46,9 +46,8 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-6 text-lg">
-            <p className="font-medium">
-              Systems Engineering Student, passionate about Artificial
-              Intelligence.
+            <p className="font-medium font-bold text-3xl tracking-tight sm:text-2xl md:text-3xl">
+              AI Developer
             </p>
 
             <p className="leading-relaxed">

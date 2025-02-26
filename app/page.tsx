@@ -12,7 +12,7 @@ export default function Home() {
         <Nav />
       </div>
 
-      <div className="items-center justify-items-center min-h-screen p-8 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative overflow-hidden">
+      <div className="items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)] relative overflow-hidden">
         <About />
         <Projects />
         <ContactPage />

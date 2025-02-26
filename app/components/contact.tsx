@@ -26,13 +26,16 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="justify-center text-left text-wrap cursor-pointer rounded-lg p-20 transition-colors backdrop-blur-md backdrop-filter">
+    <div
+      id="contact"
+      className="justify-center text-left text-wrap cursor-pointer rounded-lg transition-colors backdrop-blur-md backdrop-filter"
+    >
       <div className="justify-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="z-10 p-8 rounded-lg shadow-lg max-w-md w-full cursor-pointer hover:border-primary transition-colors backdrop-blur-md backdrop-filter "
+          className="z-10 p-6 rounded-lg shadow-lg max-w-md w-full cursor-pointer hover:border-primary transition-colors backdrop-blur-md backdrop-filter "
         >
           <motion.h1
             className="text-3xl font-bold mb-6 text-center"
