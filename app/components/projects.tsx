@@ -1,5 +1,5 @@
 "use client";
-import Nav from "../components/navabar";
+import Nav from "./navabar";
 import {
   Dialog,
   DialogContent,
@@ -76,10 +76,7 @@ export default function Projects() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div>
-        <Nav />
-      </div>
+    <div className="justify-center text-left text-wrap cursor-pointer rounded-lg p-20 transition-colors backdrop-blur-md backdrop-filter">
       <motion.section
         variants={containerVariants}
         initial="hidden"
@@ -104,14 +101,14 @@ export default function Projects() {
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 "
             variants={itemVariants}
           >
             {projects.map((project) => (
               <Dialog key={project.id}>
                 <DialogTrigger asChild>
                   <motion.div
-                    className="group cursor-pointer rounded-lg p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter"
+                    className="group cursor-pointer rounded-lg p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter shadow-lg"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >

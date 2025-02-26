@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Twitter, Linkedin, Github } from "lucide-react";
-import Nav from "../components/navabar";
+import Nav from "./navabar";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
@@ -27,22 +27,19 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div>
-        <Nav />
-      </div>
+    <div className="justify-center text-left text-wrap cursor-pointer rounded-lg p-20 transition-colors backdrop-blur-md backdrop-filter">
       <div className="justify-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="z-10 p-8 rounded-lg shadow-lg max-w-md w-full cursor-pointer hover:border-primary transition-colors backdrop-blur-md backdrop-filter"
+          className="z-10 p-8 rounded-lg shadow-lg max-w-md w-full cursor-pointer hover:border-primary transition-colors backdrop-blur-md backdrop-filter "
         >
           <motion.h1
             className="text-3xl font-bold mb-6 text-center"
             variants={itemVariants}
           >
-            Contacto
+            Contact
           </motion.h1>
           <motion.div className="space-y-4" variants={itemVariants}>
             <Link
@@ -50,7 +47,7 @@ export default function ContactPage() {
               className="flex items-center space-x-3 p-3 rounded-lg hover:text-zinc-600 transition duration-300"
             >
               <Twitter className="w-6 h-6 text-black" />
-              <span>Sígueme en X (Twitter)</span>
+              <span>Follow me on X (Twitter)</span>
             </Link>
 
             <Link
@@ -58,7 +55,7 @@ export default function ContactPage() {
               className="flex items-center space-x-3 p-3 rounded-lg hover:text-zinc-600 transition duration-300"
             >
               <Linkedin className="w-6 h-6 text-black" />
-              <span>Conéctate en LinkedIn</span>
+              <span>Connect on LinkedIn</span>
             </Link>
 
             <Link
@@ -66,7 +63,7 @@ export default function ContactPage() {
               className="flex items-center space-x-3 p-3 rounded-lg hover:text-zinc-600 transition duration-300"
             >
               <Github className="w-6 h-6 text-black" />
-              <span>Revisa mis proyectos en GitHub</span>
+              <span>Check my projects on GitHub</span>
             </Link>
           </motion.div>
         </motion.div>
