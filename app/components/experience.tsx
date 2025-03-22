@@ -75,95 +75,112 @@ export default function ExperienceAndRecognition() {
 
   return (
     <>
-      <div id="experience" className="pt-20">
+      <div
+        id="experience"
+        className="justify-center text-left text-wrap cursor-pointer pt-16 md:pt-20 px-4 md:px-6 lg:px-8 rounded-lg transition-colors backdrop-blur-md backdrop-filter"
+      >
         <motion.section
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="px-4 md:px-6 lg:px-8"
         >
-          <div className="max-w-6xl mx-auto">
-            <motion.h1
-              className="text-4xl font-bold mb-2"
-              variants={itemVariants}
-            >
-              Experience
-            </motion.h1>
-            <motion.div
-              className="h-1 w-20 bg-primary mb-6"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            />
+          <motion.h1
+            className="text-2xl md:text-4xl font-bold mb-2"
+            variants={itemVariants}
+          >
+            Experience
+          </motion.h1>
+          <motion.div
+            className="h-1 w-20 bg-primary mb-6"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          />
 
-            <motion.div className="space-y-8" variants={itemVariants}>
-              {experiences.map((exp) => (
-                <motion.div
-                  key={exp.id}
-                  className="rounded-lg p-6 backdrop-blur-md backdrop-filter shadow-sm"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h2 className="text-2xl font-semibold mb-1">{exp.title}</h2>
-                  <div className="text-primary mb-2">{exp.company}</div>
-                  <div className="text-muted-foreground mb-4">{exp.date}</div>
-                  <p className="mb-4">{exp.description}</p>
-                  {exp.achievements && (
-                    <ul className="list-disc list-inside space-y-2">
-                      {exp.achievements.map((achievement, index) => (
-                        <li key={index} className="text-muted-foreground">
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          <motion.div
+            className="space-y-6 md:space-y-8"
+            variants={itemVariants}
+          >
+            {experiences.map((exp) => (
+              <motion.div
+                key={exp.id}
+                className="rounded-lg p-4 md:p-6 backdrop-blur-md backdrop-filter shadow-sm"
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h2 className="text-xl md:text-2xl font-semibold mb-1">
+                  {exp.title}
+                </h2>
+                <div className="text-primary text-sm md:text-base mb-2">
+                  {exp.company}
+                </div>
+                <div className="text-muted-foreground text-sm mb-4">
+                  {exp.date}
+                </div>
+                <p className="text-sm md:text-base mb-4">{exp.description}</p>
+                {exp.achievements && (
+                  <ul className="list-disc list-inside space-y-2">
+                    {exp.achievements.map((achievement, index) => (
+                      <li
+                        key={index}
+                        className="text-sm md:text-base text-muted-foreground"
+                      >
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.section>
       </div>
 
-      <div id="recognition" className="pt-20">
+      <div
+        id="recognition"
+        className="justify-center text-left text-wrap cursor-pointer pt-16 md:pt-20 px-4 md:px-6 lg:px-8 rounded-lg transition-colors backdrop-blur-md backdrop-filter"
+      >
         <motion.section
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="px-4 md:px-6 lg:px-8"
         >
-          <div className="max-w-6xl mx-auto">
-            <motion.h1
-              className="text-4xl font-bold mb-2"
-              variants={itemVariants}
-            >
-              Recognition
-            </motion.h1>
-            <motion.div
-              className="h-1 w-20 bg-primary mb-6"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            />
+          <motion.h1
+            className="text-2xl md:text-4xl font-bold mb-2"
+            variants={itemVariants}
+          >
+            Recognition
+          </motion.h1>
+          <motion.div
+            className="h-1 w-20 bg-primary mb-6"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          />
 
-            <motion.div className="space-y-8" variants={itemVariants}>
-              {recognitions.map((recognition) => (
-                <motion.div
-                  key={recognition.id}
-                  className="rounded-lg p-6 backdrop-blur-md backdrop-filter shadow-sm"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h2 className="text-2xl font-semibold mb-1">
-                    🏆 {recognition.title}
-                  </h2>
-                  <div className="text-muted-foreground mb-4">
-                    {recognition.date}
-                  </div>
-                  <p>{recognition.description}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          <motion.div
+            className="space-y-6 md:space-y-8"
+            variants={itemVariants}
+          >
+            {recognitions.map((recognition) => (
+              <motion.div
+                key={recognition.id}
+                className="rounded-lg p-4 md:p-6 backdrop-blur-md backdrop-filter shadow-sm"
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h2 className="text-xl md:text-2xl font-semibold mb-1">
+                  🏆 {recognition.title}
+                </h2>
+                <div className="text-muted-foreground text-sm mb-4">
+                  {recognition.date}
+                </div>
+                <p className="text-sm md:text-base">
+                  {recognition.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.section>
       </div>
     </>

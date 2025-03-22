@@ -26,15 +26,15 @@ export default function About() {
 
   return (
     <div id="about">
-      <div className="justify-center text-left text-wrap cursor-pointer rounded-lg p-20 transition-colors backdrop-blur-md backdrop-filter">
+      <div className="justify-center text-left text-wrap cursor-pointer rounded-lg px-4 py-16 md:p-20 transition-colors backdrop-blur-md backdrop-filter">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="mx-auto max-w-3xl space-y-8"
+          className="mx-auto max-w-3xl space-y-6 md:space-y-8"
         >
           <motion.div variants={itemVariants} className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-foreground">
               Jose Martín Rodriguez Mortaloni
             </h1>
             <motion.div
@@ -45,12 +45,12 @@ export default function About() {
             />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-6 text-lg">
-            <p className="font-medium font-bold text-3xl tracking-tight sm:text-2xl md:text-3xl">
+          <motion.div variants={itemVariants}>
+            <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight mb-4">
               AI Developer
             </p>
 
-            <p className="leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed mb-4">
               My goal is to apply my knowledge to create innovative and
               efficient solutions, using cutting-edge tools such as Python,
               pandas, matplotlib, FAISS, and OpenAI APIs. I specialize in
@@ -59,7 +59,7 @@ export default function About() {
               into useful knowledge.
             </p>
 
-            <p className="leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed">
               I love solving complex problems creatively and efficiently, always
               looking to improve the functionality and efficiency of my
               solutions. I learn best through practical projects and strive to

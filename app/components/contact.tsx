@@ -28,7 +28,7 @@ export default function ContactPage() {
   return (
     <div
       id="contact"
-      className="justify-center text-left text-wrap cursor-pointer rounded-lg transition-colors backdrop-blur-md backdrop-filter"
+      className="justify-center text-left text-wrap cursor-pointer rounded-lg transition-colors backdrop-blur-md backdrop-filter pt-28 md:pt-32"
     >
       <div className="justify-center">
         <motion.div

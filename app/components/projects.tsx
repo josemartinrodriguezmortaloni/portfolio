@@ -86,204 +86,119 @@ export default function Projects() {
   return (
     <div
       id="projects"
-      className="justify-center text-left text-wrap cursor-pointer pt-20 rounded-lg transition-colors backdrop-blur-md backdrop-filter"
+      className="justify-center text-left text-wrap cursor-pointer pt-16 md:pt-20 px-4 md:px-6 lg:px-8 rounded-lg transition-colors backdrop-blur-md backdrop-filter"
     >
       <motion.section
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="px-4 md:px-6 lg:px-8"
       >
-        <div className="max-w-6xl mx-auto">
-          <motion.h1
-            className="text-4xl font-bold mb-2"
-            variants={itemVariants}
-          >
-            Projects
-          </motion.h1>
-          <motion.div
-            className="h-1 w-20 bg-primary mb-6"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          />
+        <motion.h1
+          className="text-2xl md:text-4xl font-bold mb-2"
+          variants={itemVariants}
+        >
+          Projects
+        </motion.h1>
+        <motion.div
+          className="h-1 w-20 bg-primary mb-6"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        />
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 auto-rows-[180px] gap-4 m-4"
-            variants={itemVariants}
-          >
-            {projects.map((project, index) => (
-              <Dialog key={project.id}>
-                <DialogTrigger asChild>
-                  <motion.div
-                    className={`${
-                      index === 0
-                        ? "md:col-span-2 md:row-span-2"
-                        : index === 1
-                        ? "md:col-span-1 md:row-span-1"
-                        : index === 2
-                        ? "md:col-span-1 md:row-span-1"
-                        : "md:col-span-3 md:row-span-1"
-                    } group cursor-pointer rounded-lg p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter shadow-sm flex flex-col justify-between`}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <h2 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                          {project.title}
-                        </h2>
-                        {project.views !== undefined && (
-                          <span className="text-sm text-muted-foreground flex items-center gap-1">
-                            <ExternalLink className="w-4 h-4" />
-                            {project.views.toLocaleString()}
-                          </span>
-                        )}
-                      </div>
-
-                      {project.description && (
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
-                          {project.description}
-                        </p>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[180px] md:auto-rows-[200px]"
+          variants={itemVariants}
+        >
+          {projects.map((project, index) => (
+            <Dialog key={project.id}>
+              <DialogTrigger asChild>
+                <motion.div
+                  className={`${
+                    index === 0
+                      ? "md:col-span-2 md:row-span-2"
+                      : index === 1
+                      ? "md:col-span-1 md:row-span-1"
+                      : index === 2
+                      ? "md:col-span-1 md:row-span-1"
+                      : "md:col-span-3 md:row-span-1"
+                  } group cursor-pointer rounded-lg p-4 md:p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter shadow-sm flex flex-col justify-between`}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div>
+                    <div className="flex justify-between items-start mb-4">
+                      <h2 className="text-xl md:text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h2>
+                      {project.views !== undefined && (
+                        <span className="text-sm text-muted-foreground flex items-center gap-1">
+                          <ExternalLink className="w-4 h-4" />
+                          {project.views.toLocaleString()}
+                        </span>
                       )}
                     </div>
 
-                    <div className="flex items-center text-sm text-primary mt-auto">
-                      Read more →
-                    </div>
-                  </motion.div>
-                </DialogTrigger>
-
-                <DialogContent className="sm:max-w-[625px] backdrop-blur-md backdrop-filter shadow-lg rounded-lg">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl">
-                      {project.title}
-                    </DialogTitle>
-                  </DialogHeader>
-
-                  <div className="mt-4 space-y-4">
-                    {project.longDescription && (
-                      <Markdown>{project.longDescription}</Markdown>
+                    {project.description && (
+                      <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                        {project.description}
+                      </p>
                     )}
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      {project.githubUrl && (
-                        <Button asChild>
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2"
-                          >
-                            <Github className="w-4 h-4" />
-                            View on GitHub
-                          </a>
-                        </Button>
-                      )}
-                      {project.demoUrl && (
-                        <Button asChild variant="outline">
-                          <a
-                            href={project.demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                            View Demo
-                          </a>
-                        </Button>
-                      )}
-                    </div>
                   </div>
-                </DialogContent>
-              </Dialog>
-            ))}
-          </motion.div>
 
-          {/* {projects.length > 3 && (
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold mb-4">More Projects</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {projects.slice(3).map((project) => (
-                  <Dialog key={project.id}>
-                    <DialogTrigger asChild>
-                      <motion.div
-                        className="group cursor-pointer rounded-lg p-6 hover:border-primary transition-colors backdrop-blur-md backdrop-filter shadow-sm"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="flex justify-between items-start mb-4">
-                          <h2 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                            {project.title}
-                          </h2>
-                          {project.views !== undefined && (
-                            <span className="text-sm text-muted-foreground flex items-center gap-1">
-                              <ExternalLink className="w-4 h-4" />
-                              {project.views.toLocaleString()}
-                            </span>
-                          )}
-                        </div>
+                  <div className="flex items-center text-sm text-primary mt-auto">
+                    Read more →
+                  </div>
+                </motion.div>
+              </DialogTrigger>
 
-                        {project.description && (
-                          <p className="text-muted-foreground mb-4">
-                            {project.description}
-                          </p>
-                        )}
+              <DialogContent className="w-[90vw] max-w-3xl overflow-y-auto max-h-[90vh] bg-white/50 backdrop-blur-md backdrop-filter">
+                <DialogHeader>
+                  <DialogTitle className="text-xl md:text-2xl">
+                    {project.title}
+                  </DialogTitle>
+                </DialogHeader>
 
-                        <div className="flex items-center text-sm text-primary">
-                          Read more →
-                        </div>
-                      </motion.div>
-                    </DialogTrigger>
+                <div className="mt-4 space-y-4">
+                  {project.longDescription && (
+                    <div className="prose prose-sm md:prose-base max-w-none">
+                      <Markdown>{project.longDescription}</Markdown>
+                    </div>
+                  )}
 
-                    <DialogContent className="sm:max-w-[625px] bg-white/50 backdrop-blur-md backdrop-filter border border-white/20 shadow-lg rounded-lg">
-                      <DialogHeader>
-                        <DialogTitle className="text-2xl">
-                          {project.title}
-                        </DialogTitle>
-                      </DialogHeader>
-
-                      <div className="mt-4 space-y-4">
-                        {project.longDescription && (
-                          <Markdown>{project.longDescription}</Markdown>
-                        )}
-
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          {project.githubUrl && (
-                            <Button asChild>
-                              <a
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
-                              >
-                                <Github className="w-4 h-4" />
-                                View on GitHub
-                              </a>
-                            </Button>
-                          )}
-                          {project.demoUrl && (
-                            <Button asChild variant="outline">
-                              <a
-                                href={project.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
-                              >
-                                <ExternalLink className="w-4 h-4" />
-                                View Demo
-                              </a>
-                            </Button>
-                          )}
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                ))}
-              </div>
-            </div>
-          )} */}
-        </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    {project.githubUrl && (
+                      <Button asChild>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <Github className="w-4 h-4" />
+                          View on GitHub
+                        </a>
+                      </Button>
+                    )}
+                    {project.demoUrl && (
+                      <Button asChild variant="outline">
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Demo
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          ))}
+        </motion.div>
       </motion.section>
     </div>
   );
