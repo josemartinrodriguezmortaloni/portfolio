@@ -4,6 +4,7 @@ import Nav from "./components/navabar";
 import About from "./components/about";
 import Projects from "./components/projects";
 import ContactPage from "./components/contact";
+import ExperienceAndRecognition from "./components/experience";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="items-center justify-items-center min-h-screen sm:p-20 font-[family-name:var(--font-geist-sans)] relative overflow-hidden">
         <About />
         <Projects />
+        <ExperienceAndRecognition />
         <ContactPage />
       </div>
     </main>

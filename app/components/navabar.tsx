@@ -13,7 +13,13 @@ export default function Nav() {
       // Si acabamos de hacer clic, no procesamos el evento de scroll
       if (clickedRef.current) return;
 
-      const sections = ["about", "projects", "contact"];
+      const sections = [
+        "about",
+        "projects",
+        "experience",
+        "recognition",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 100; // offset para mejor detección
 
       for (const section of sections) {
@@ -46,6 +52,8 @@ export default function Nav() {
   const navItems = [
     { name: "About", id: "about" },
     { name: "Projects", id: "projects" },
+    { name: "Experience", id: "experience" },
+    { name: "Recognition", id: "recognition" },
     { name: "Contact", id: "contact" },
   ];
 
