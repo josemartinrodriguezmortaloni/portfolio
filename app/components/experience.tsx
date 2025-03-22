@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { Markdown } from "@/app/components/markdown";
 
 interface Experience {
   id: string;
